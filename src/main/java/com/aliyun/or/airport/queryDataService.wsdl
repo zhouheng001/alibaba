@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="QueryDataServiceService" targetNamespace="http://service.acdmwebservice.unionflight.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://service.acdmwebservice.unionflight.com/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://service.acdmwebservice.unionflight.com/" version="1.0" xmlns:tns="http://service.acdmwebservice.unionflight.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="queryFlightData" type="tns:queryFlightData"></xs:element>
+<xs:element name="queryFlightDataResponse" type="tns:queryFlightDataResponse"></xs:element>
+<xs:complexType name="queryFlightData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="xmlParam" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="queryFlightDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>  </wsdl:types>
+  <wsdl:message name="queryFlightDataResponse">
+    <wsdl:part element="tns:queryFlightDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryFlightData">
+    <wsdl:part element="tns:queryFlightData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="QueryDataService">
+    <wsdl:operation name="queryFlightData">
+      <wsdl:input message="tns:queryFlightData" name="queryFlightData">
+    </wsdl:input>
+      <wsdl:output message="tns:queryFlightDataResponse" name="queryFlightDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QueryDataServiceServiceSoapBinding" type="tns:QueryDataService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="queryFlightData">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="queryFlightData">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="queryFlightDataResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueryDataServiceService">
+    <wsdl:port binding="tns:QueryDataServiceServiceSoapBinding" name="QueryDataServicePort">
+      <soap:address location="http://10.40.1.79/acdmwebservice/services/queryDataService"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
