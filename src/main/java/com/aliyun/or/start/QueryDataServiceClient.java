@@ -44,7 +44,6 @@ public class QueryDataServiceClient {
             //通过代理类调用服务方法
             String xmlresult = queryDataServicePort.queryFlightData(xmlString);
 
-
             //在Linux下生成csv文件
             boolean xmlWrite = XmlWriteCvs.write(xmlresult, topTitle,nowDay);//传入查询结果xmlresult,及cvs文件topTitle头标签
 
