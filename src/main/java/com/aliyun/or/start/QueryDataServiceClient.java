@@ -56,7 +56,8 @@ public class QueryDataServiceClient {
 
                     //将文件再次发送作为备份文件
                     FileInputStream in_log = new FileInputStream(new File("C:\\temp\\bcia_Gate\\airport.csv"));
-                    //根据当前时间设置备份文件名称
+
+                   //根据当前时间设置备份文件名称
                     String log_airport = time+"airport_log.csv";
                     boolean logflag = FtpUploadFile.ftpUploadfile(log_airport,"log" ,in_log);
 
