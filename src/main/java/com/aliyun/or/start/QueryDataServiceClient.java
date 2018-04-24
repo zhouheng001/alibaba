@@ -3,6 +3,7 @@ package com.aliyun.or.start;
 import com.aliyun.or.airport.QueryDataService;
 import com.aliyun.or.airport.QueryDataServiceService;
 import com.aliyun.or.util.FtpUploadFile;
+import com.aliyun.or.util.SendEmailBySpringApi;
 import com.aliyun.or.util.XmlWriteCvs;
 
 import java.io.File;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class QueryDataServiceClient {
     public static void main(String[] args){
 
+        try{
             //获取服务的代理类并通过代理类实现业务
             QueryDataServiceService queryDataServiceService = new QueryDataServiceService();
             QueryDataService queryDataServicePort = queryDataServiceService.getQueryDataServicePort();
@@ -73,9 +75,19 @@ public class QueryDataServiceClient {
                         System.out.println("airport.csv has been uploaded failed!"+"DateTime:"+time);
                     }
                 } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    try {
+                        SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
-
+        }catch (Exception e){
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 }

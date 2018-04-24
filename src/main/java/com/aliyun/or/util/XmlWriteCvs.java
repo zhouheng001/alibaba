@@ -29,7 +29,11 @@ public class XmlWriteCvs {
         try{
             xml = xml.substring(xml.indexOf("<results>"), xml.indexOf("</results>")+"</results>".length());
         }catch (Exception e){
-//            System.out.println("查询结果是空!");
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         try {
@@ -70,13 +74,29 @@ public class XmlWriteCvs {
             result = true;
             return result;
         } catch (DocumentException e) {
-            e.printStackTrace();
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
         return result;
     }

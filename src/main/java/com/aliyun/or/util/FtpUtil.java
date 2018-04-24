@@ -72,7 +72,11 @@ public class FtpUtil {
 			ftp.logout();
 			result = true;
 		} catch (IOException e) {
-			e.printStackTrace();
+			try {
+				SendEmailBySpringApi.sendEmailBySpringApi("1020886351@qq.com", "中国服务大厦微服务", e.getMessage());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		} finally {
 			if (ftp.isConnected()) {
 				try {
