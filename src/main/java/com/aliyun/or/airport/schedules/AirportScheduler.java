@@ -25,7 +25,7 @@ import java.util.Date;
 @Component
 @Async
 @PropertySource("classpath:job.properties")
-public class MyScheduler {
+public class AirportScheduler {
 
     @Autowired
     private WriterCvsService writerCvsService;
