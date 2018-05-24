@@ -53,10 +53,12 @@ public class AirportScheduler {
 
             SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
             String nowDay=df.format(date);
+
             String paramxml ="<filters><auth><userCode>ali01</userCode><userPassword>ali01</userPassword></auth><baseFilters><operationDate>"
                     +nowDay+
                     "</operationDate><aord>D</aord></baseFilters></filters>";
-            Object[] objects = new Object[0];
+
+            Object[] objects = null;
 
             SimpleDateFormat timeformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String time=timeformat.format(new Date());
