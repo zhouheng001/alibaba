@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 
 @Service
-@PropertySource(value = "classpath:email.properties",encoding = "gbk")
+@PropertySource(value = {"file:C:/Users/wb-zh388722/Desktop/gitlab_workspace1/AirportSmartSchedule/src/main/resources/email.properties"},encoding = "gbk",ignoreResourceNotFound = true)
 public class EmailServiceImpl implements EmailService {
 
     @Value("${email.host}")

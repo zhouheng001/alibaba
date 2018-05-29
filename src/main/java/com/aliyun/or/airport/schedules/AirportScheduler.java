@@ -24,7 +24,7 @@ import java.util.Date;
 @Slf4j
 @Component
 @Async
-@PropertySource("classpath:job.properties")
+@PropertySource(value ={"file:C:/Users/wb-zh388722/Desktop/gitlab_workspace1/AirportSmartSchedule/src/main/resources/job.properties"},ignoreResourceNotFound = true)
 public class AirportScheduler {
 
     @Autowired

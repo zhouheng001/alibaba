@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
-@PropertySource(value = "classpath:writecvs.properties",encoding = "gbk")
+@PropertySource(value = {"file:C:/Users/wb-zh388722/Desktop/gitlab_workspace1/AirportSmartSchedule/src/main/resources/writecvs.properties"},encoding = "gbk",ignoreResourceNotFound = true)
 public class WriterCvsServiceImpl implements WriterCvsService {
 
     @Value("${cvs.title}")

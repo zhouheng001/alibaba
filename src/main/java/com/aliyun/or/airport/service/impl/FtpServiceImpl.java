@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 
 @Service
-@PropertySource("classpath:ftp.properties")
+@PropertySource(value = {"file:C:/Users/wb-zh388722/Desktop/gitlab_workspace1/AirportSmartSchedule/src/main/resources/ftp.properties"},ignoreResourceNotFound = true)
 public class FtpServiceImpl implements FtpService {
 
     @Value("${ftp.host}")
